@@ -5,13 +5,13 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
-    public function up()
+    public function up(): void
     {
         Schema::create('notifications', function (Blueprint $table) {
-            $table->id(); // المفتاح الأساسي
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade'); // ربط الإشعار بالمستخدم
-            $table->string('title'); // عنوان الإشعار
-            $table->text('message'); // نص الإشعار
+            $table->id();
+            $table->foreignId('user_id')->constrained('users', 'id')->onDelete('cascade');
+            $table->string("notification_title");
+            $table->string("notification_description");
             $table->timestamps();
         });
     }
