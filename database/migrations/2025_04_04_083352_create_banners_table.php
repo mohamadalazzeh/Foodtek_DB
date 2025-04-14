@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
     public function up()
-    {//v
+    {
         Schema::create('banners', function (Blueprint $table) {
             $table->id(); // المفتاح الأساسي
             $table->text('description')->nullable(); // وصف الإعلان
