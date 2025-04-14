@@ -10,7 +10,7 @@ return new class extends Migration {
         Schema::create('drivers', function (Blueprint $table) {
             $table->id();
             $table->foreignId('restaurant_id')->constrained()->onDelete('cascade'); // المطعم المرتبط
- // اسم السائق
+            $table->string('full_name'); // اسم السائق
             $table->string('phone')->unique(); // رقم الهاتف
             $table->string('vehicle_type'); // نوع المركبة
             $table->enum('status', ['available', 'on_delivery', 'inactive'])->default('available'); // حالة السائق
