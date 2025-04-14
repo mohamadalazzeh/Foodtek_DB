@@ -11,13 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('restaurants',function(Blueprint $table){
-$table->id();
-$table->string('name');//اسم المطعم
-$table->text('location');//الموقع
-$table->string('phone')->unique();//رقم الهاتف
+        Schema::create('cards', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
         });
-        //
     }
 
     /**
@@ -25,7 +22,6 @@ $table->string('phone')->unique();//رقم الهاتف
      */
     public function down(): void
     {
-        Schema::dropIfExists('restaurants');
-        //
+        Schema::dropIfExists('cards');
     }
 };

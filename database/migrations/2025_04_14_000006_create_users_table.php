@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('phone');
             $table->string('birth');
             $table->string('password');
-            $table->enum('role', ['customer', 'driver', 'manager'])->default('customer');
             $table->rememberToken();
             $table->timestamps();
         });
