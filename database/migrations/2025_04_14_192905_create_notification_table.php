@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('notification', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->string("notification_title");
+            $table->string("notification_description");
             $table->timestamps();
         });
     }

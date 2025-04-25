@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->foreignId('order_id')->constrained('orders')->onDelete('cascade');  // مفتاح أجنبي لجدول الطلبات
+            $table->integer('quantity'); // الكمية
+            $table->decimal('price', 8, 2); // السعر
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

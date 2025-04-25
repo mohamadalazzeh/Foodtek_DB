@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('offers', function (Blueprint $table) {
             $table->id();
+            $table->string('name'); // اسم العرض
+            $table->text('description'); // وصف العرض
+            $table->decimal('discount_percentage', 5, 2); // نسبة الخصم
+            $table->date('start_date'); // تاريخ بدء العرض
+            $table->date('end_date'); // تاريخ نهاية العرض
             $table->timestamps();
         });
     }

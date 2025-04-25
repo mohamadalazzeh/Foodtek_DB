@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade'); // مفتاح أجنبي لجدول المستخدمين
+            $table->decimal('total_amount', 10, 2); // المبلغ الإجمالي
+            $table->enum('status', ['pending', 'preparing', 'out_for_delivery', 'completed', 'canceled']);
+            $table->enum('payment_status', ['pending', 'paid', 'failed']);
             $table->timestamps();
         });
     }
